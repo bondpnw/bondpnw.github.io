@@ -7,9 +7,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Matrix Background -->
-  <div id="matrix"></div>
-
   <h1>PNW Nation Information</h1>
   <input type="number" id="nationID" placeholder="Enter Nation ID">
   <button onclick="getNationData()">Get Nation Info</button>
@@ -19,20 +16,6 @@
   <p><strong>Leader:</strong> <span id="leaderName">N/A</span></p>
   <p><strong>Alliance:</strong> <span id="allianceName">N/A</span></p>
 
-  <script>
-    async function getNationData() {
-      const nationID = document.getElementById('nationID').value;
-      const response = await fetch(`/api/nation/${nationID}`);
-      const data = await response.json();
-
-      if (data.error) {
-        alert(data.error);
-      } else {
-        document.getElementById('nationName').innerText = data.name;
-        document.getElementById('leaderName').innerText = data.leaderName;
-        document.getElementById('allianceName').innerText = data.alliance.name;
-      }
-    }
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
